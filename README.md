@@ -1,1 +1,2 @@
 # Cinema
+# migration name: AddMovieToDatabase
