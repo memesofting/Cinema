@@ -1,0 +1,44 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = "Create";
+}
+<partial name="_Notification" />
+<form method="post" class="border border-1 p-2" asp-action="DeleteMovie">
+    <div class="row pb-2">
+        <h2 class="text-primary">Edit Movie</h2>
+        <br />
+    </div>
+    <input asp-for="Id" hidden />
+    <div class="mb-3">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" disabled class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Genre"></label>
+        <input asp-for="Genre" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Location"></label>
+        <input asp-for="Location" disabled class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-controller="Movie" asp-action="Index" class="btn btn-secondary">Back to movies list</a>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+

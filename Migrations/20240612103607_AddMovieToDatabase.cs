@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -17,12 +16,10 @@ namespace Cinema.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Duration = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ShowTime = table.Column<TimeOnly>(type: "time", nullable: false),
-                    ShowDate = table.Column<DateOnly>(type: "date", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
