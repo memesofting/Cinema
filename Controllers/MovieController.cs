@@ -26,8 +26,16 @@ namespace Cinema.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Movie obj)
+        public IActionResult Create(Movie obj, IFormFile moviePoster)
         {
+            if (moviePoster != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    moviePoster.CopyTo(memoryStream);
+                    obj.MoviePoster = memoryStream.ToArray();
+                }
+            }
             if (ModelState.IsValid)
             {
                 _db.Movies.Add(obj);
@@ -56,8 +64,16 @@ namespace Cinema.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Movie obj)
+        public IActionResult Edit(Movie obj, IFormFile moviePoster)
         {
+            if (moviePoster != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    moviePoster.CopyTo(memoryStream);
+                    obj.MoviePoster = memoryStream.ToArray();
+                }
+            }
             if (ModelState.IsValid)
             {
                 _db.Movies.Update(obj);

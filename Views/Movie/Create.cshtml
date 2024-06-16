@@ -3,7 +3,7 @@
     ViewData["Title"] = "Create";
 }
 
-<form method="post" class="border border-1 p-2">
+<form method="post" enctype="multipart/form-data" class="border border-1 p-2">
     <div class="row pb-2">
         <h2 class="text-primary">Add Movie</h2>
         <br />
@@ -28,6 +28,10 @@
     <div class="mb-3">
         <label asp-for="Location"></label>
         <input asp-for="Location" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="MoviePoster"></label>
+        <input asp-for="MoviePoster" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Add</button>
     <a asp-controller="Movie" asp-action="Index" class="btn btn-secondary">Back to movies list</a>

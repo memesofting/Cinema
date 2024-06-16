@@ -35,6 +35,9 @@
             <th>
                 Location
             </th>
+            <th>
+                Poster
+            </th>
             <th></th>
         </tr>
         <tbody>
@@ -55,6 +58,12 @@
                     </td>
                     <td>
                         @obj.Location
+                    </td>
+                    <td>
+                        @if (obj.MoviePoster != null)
+                        {
+                            <img src="data:image;base64,@Convert.ToBase64String(obj.MoviePoster)" alt="Movie Poster" />
+                        }
                     </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
