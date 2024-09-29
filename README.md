@@ -1,3 +1,2 @@
 # Cinema
-# migration name: AddMovieToDatabase
-# migration name for poster column: AddImgToDatabase
+Online cinema booking web app
