@@ -1,8 +1,12 @@
-﻿@*
+﻿@model IEnumerable<Cinema.Models.Movie>
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+
+
 <div>
     <h1 class="container text-center">Welcome</h1>
 </div>
@@ -10,12 +14,25 @@
     <section class="top">
     </section>
     <section class="movies">
-        <p>Now showing / comming soon</p>
-        <div class="poster"></div>
-        <div class="poster"></div>
-        <div class="poster"></div>
-        <div class="poster"></div>
-        <div class="poster"></div>
+        <p>Now showing / coming soon</p>
+        @if (Model != null)
+        {
+            foreach (var movie in Model)
+            {
+                <div class="poster">
+                    <p>@movie.Title</p>
+                    @if (movie.MoviePoster != null)
+                    {
+                        <img src="data:image;base64,@Convert.ToBase64String(movie.MoviePoster)"
+                             alt="Movie Poster" />
+                    }
+                </div>  
+            }
+        }
+        else  
+        {  
+            <p>No movies to display.</p>
+        }
     </section>
     <section class="bottom"></section>
 </div>
